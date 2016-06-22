@@ -273,6 +273,13 @@ small {
     width: 155px;
 }
 
+.support.osm {
+    position: relative;
+    bottom: 10px;
+    left: 0px;
+    width: 120px;
+}
+
 .support.knuckleheads {
     position: relative;
     bottom: 28px;
@@ -283,7 +290,7 @@ small {
     position: relative;
     bottom: 0px;
     width: 255px;
-    left: -10px;
+    left: 0px;
 }
 
 .support.mapbox {
