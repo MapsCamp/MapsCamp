@@ -72,14 +72,17 @@
                 <div class="event-speaker">
                   Jason Y. Kim <a href="http://www.gps.gov/governance/excom/nco/kim/">gps.gov</a>
                 </div>
+                <div class="event-details">
+                  Jason Kim from the U.S. Government's National Coordination Office for Space-Based Positioning, Navigation, and Timing (<a href="http://www.gps.gov" target="_blank">www.gps.gov</a>) will present an overview of the Global Positioning System (GPS), including how it works, its current performance, plans for the future, and how the government manages GPS as a National asset.
+                </div>
                 <div class="event-speaker">
                   Rick Hamilton <a href="http://www.navcen.uscg.gov/?pageName=GPSmain">US Coast Guard</a>
                 </div>
-                <div class="event-speaker">
-                  Daniel M. Sheehan <a href="https://twitter.com/nygeog">@nygeog</a>
-                </div>
                 <div class="event-details">
                   As a DOD Air Force operated system, who represents the public in the U.S. Global Positioning System (GPS) program?  Who advocates for the civil use of GPS?  What kind of problems are being caused by the illegal use of GPS jammers and what issues are affecting the public's proper use of GPS mapping?
+                </div>
+                <div class="event-speaker">
+                  Daniel M. Sheehan <a href="https://twitter.com/nygeog">@nygeog</a>
                 </div>
               </li>
               <li class="event">
@@ -208,6 +211,11 @@
       evt = evt || window.event;
       var targ = evt.target || evt.srcElement;
       var el = this;
+
+      if (targ.href !== undefined) {
+        // This was a link. Don't toggle.
+        return;
+      }
 
       var toggle = el.getElementsByClassName("event-details-toggle")[0];
       var content = el.getElementsByClassName("event-details-content")[0];
