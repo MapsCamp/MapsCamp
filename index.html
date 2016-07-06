@@ -36,7 +36,7 @@
           <p>Please review the <a href="http://visit.un.org/content/security">UN security</a> rules: we want you all to have a wonderful day, and starting it off by not getting in would really put a dampener on the rest of it!</p>
 
           <div style="width:100%; text-align:left;" >
-            <iframe  src="https://eventbrite.com/tickets-external?eid=24786765884&ref=etckt" frameborder="0" height="214" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+            <iframe  src="https://eventbrite.com/tickets-external?eid=24786765884&ref=etckt" frameborder="0" height="260" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
             <div style="font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #dddddd; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/r/etckt">Powered by Eventbrite</a></div>
           </div>
 
@@ -90,6 +90,9 @@
                 <div class="event-description">Building enterprise apps with Open Source</div>
                 <div class="event-speaker">
                   Peter Batty <a href="https://twitter.com/pmbatty">@pmbatty</a>
+                </div>
+                <div class="event-details">
+                  <small class="color-off-white">This presentation will discuss enterprise web mapping and mobile applications that we've been developing for large utilities and communications companies, based on a number of open source geospatial components, including PostGIS, GeoServer and Leaflet. It will talk about why we chose to use open source and the benefits we’ve seen from that - and will also talk about how most of our projects use a mix of open and closed source elements. It will also discuss ideas on how to create extremely easy to use but still powerful applications, using approaches inspired by consumer web mapping sites rather than traditional GIS.</small>
                 </div>
               </li>
               <li class="event">
@@ -187,4 +190,39 @@
       </dv>
     </div>
   </body>
+
+  <script type="text/javascript">
+    function toggleElement(evt) {
+      evt = evt || window.event;
+      var targ = evt.target || evt.srcElement;
+      var el = this;
+
+      var toggle = el.getElementsByClassName("event-details-toggle")[0];
+      var content = el.getElementsByClassName("event-details-content")[0];
+
+      var newContentVisibility = content.className.indexOf("content-visible") < 0;
+      content.className = "event-details-content " + (newContentVisibility ? "content-visible" : "content-hidden");
+      toggle.className = "event-details-toggle " + (newContentVisibility ? "hide-content" : "show-content");
+    }
+
+    function setupToggle() {
+      var elements = document.getElementsByClassName("event-details");
+      Array.prototype.map.call(elements, function(element) {
+        var contentDiv = document.createElement("div");
+        contentDiv.className = "event-details-content content-hidden";
+
+        while (element.childElementCount > 0) {
+          contentDiv.appendChild(element.childNodes[0]);
+        }
+
+        element.onclick = toggleElement;
+        var toggleDiv = document.createElement("div");
+        toggleDiv.className = "event-details-toggle show-content";
+        element.appendChild(toggleDiv);
+        element.appendChild(contentDiv);
+      })
+    }
+
+    setupToggle();
+  </script>
 </html>

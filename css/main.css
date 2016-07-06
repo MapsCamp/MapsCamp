@@ -231,6 +231,27 @@ small {
     color: white;
 }
 
+.event-details-content.content-visible {
+    display: block;
+}
+
+.event-details-content.content-hidden {
+    display: none;
+}
+
+.event-details-toggle {
+    display: inline-block;
+    font-size: small;
+}
+
+.event-details-toggle.show-content::before {
+    content: "View Session Summary";
+}
+
+.event-details-toggle.hide-content::before {
+    content: "Hide Session Summary";
+}
+
 .event {
     list-style-type: none;
     position: relative;
