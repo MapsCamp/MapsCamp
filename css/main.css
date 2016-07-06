@@ -231,8 +231,17 @@ small {
     color: white;
 }
 
+.event-details {
+    display: inline-block;
+}
+
 .event-details-content.content-visible {
     display: block;
+    padding-bottom: 8px;
+    margin-top: 5px;
+    background-color: rgba(1,1,1,0.3);
+    font-size: .65em;
+    padding: 3px;
 }
 
 .event-details-content.content-hidden {
@@ -240,16 +249,19 @@ small {
 }
 
 .event-details-toggle {
-    display: inline-block;
     font-size: small;
 }
 
+.event-details-toggle.show-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 .event-details-toggle.show-content::before {
     content: "View Session Summary";
 }
 
-.event-details-toggle.hide-content::before {
-    content: "Hide Session Summary";
+.event-details-toggle.hide-content {
+    diplay:none;
 }
 
 .event {

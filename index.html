@@ -69,15 +69,18 @@
               <li class="event">
                 <p class="event-time">10:00</p>
                 <div class="event-description">What is GPS?</div>
-                  <div class="event-speaker">
-                    Jason Y. Kim <a href="http://www.gps.gov/governance/excom/nco/kim/">gps.gov</a>
-                  </div>
-                  <div class="event-speaker">
-                    Rick Hamilton <a href="http://www.navcen.uscg.gov/?pageName=GPSmain">US Coast Guard</a>
-                  </div>
-                  <div class="event-speaker">
-                    Daniel M. Sheehan <a href="https://twitter.com/nygeog">@nygeog</a>
-                  </div>
+                <div class="event-speaker">
+                  Jason Y. Kim <a href="http://www.gps.gov/governance/excom/nco/kim/">gps.gov</a>
+                </div>
+                <div class="event-speaker">
+                  Rick Hamilton <a href="http://www.navcen.uscg.gov/?pageName=GPSmain">US Coast Guard</a>
+                </div>
+                <div class="event-details">
+                  As a DOD Air Force operated system, who represents the public in the U.S. Global Positioning System (GPS) program?  Who advocates for the civil use of GPS?  What kind of problems are being caused by the illegal use of GPS jammers and what issues are affecting the public's proper use of GPS mapping?
+                </div>
+                <div class="event-speaker">
+                  Daniel M. Sheehan <a href="https://twitter.com/nygeog">@nygeog</a>
+                </div>
               </li>
               <li class="event">
                 <p class="event-time">10:45</p>
@@ -92,7 +95,7 @@
                   Peter Batty <a href="https://twitter.com/pmbatty">@pmbatty</a>
                 </div>
                 <div class="event-details">
-                  <small class="color-off-white">This presentation will discuss enterprise web mapping and mobile applications that we've been developing for large utilities and communications companies, based on a number of open source geospatial components, including PostGIS, GeoServer and Leaflet. It will talk about why we chose to use open source and the benefits we’ve seen from that - and will also talk about how most of our projects use a mix of open and closed source elements. It will also discuss ideas on how to create extremely easy to use but still powerful applications, using approaches inspired by consumer web mapping sites rather than traditional GIS.</small>
+                  This presentation will discuss enterprise web mapping and mobile applications that we've been developing for large utilities and communications companies, based on a number of open source geospatial components, including PostGIS, GeoServer and Leaflet. It will talk about why we chose to use open source and the benefits we’ve seen from that - and will also talk about how most of our projects use a mix of open and closed source elements. It will also discuss ideas on how to create extremely easy to use but still powerful applications, using approaches inspired by consumer web mapping sites rather than traditional GIS.
                 </div>
               </li>
               <li class="event">
@@ -126,6 +129,11 @@
                 <div class="event-speaker">
                   Bert Spaan <a href="https://twitter.com/bertspaan">@bertspaan</a>
                 </div>
+                <div class="event-details">
+                  The NYC Space/Time Directory will make urban history accessible through the kinds of interactive, location-aware tools used to navigate modern cityscapes. It will provide a way for scholars, students, and enthusiasts to explore New York City across time periods, and to add their own knowledge and expertise. 
+                  <br/><br/>
+                  Over the past five years, NYPL Labs has worked on many digitization, crowdsourcing, and digital cartography projects, all aiming to make the collection of the New York Public Library more accesible. The NYC Space/Time Directory will build on top of those efforts, and it will create new connections between previously unconnected library collections and data sources.
+                </div>
               </li>
               <li class="event">
                 <p class="event-time">3:00<br/><small class="color-off-white">[panel]</small></p>
@@ -158,6 +166,10 @@
                   Courtney Claessens <a href="https://twitter.com/sidewalkballet">@sidewalkballet</a> |
                   Peter Batty <a href="https://twitter.com/pmbatty">@pmbatty</a> |
                   Alyssa Wright <a href="https://twitter.com/alyssapwright">@alyssapwright</a>
+                </div>
+                <div class="event-details">
+                  Industry mavens together onstage to talk and enlighten about the big picture of what's next in mapping.
+                </div>
               </li>
               <li class="event">
                 <p class="event-time">5:15</p>
@@ -192,7 +204,7 @@
   </body>
 
   <script type="text/javascript">
-    function toggleElement(evt) {
+    function toggleDetails(evt) {
       evt = evt || window.event;
       var targ = evt.target || evt.srcElement;
       var el = this;
@@ -210,12 +222,11 @@
       Array.prototype.map.call(elements, function(element) {
         var contentDiv = document.createElement("div");
         contentDiv.className = "event-details-content content-hidden";
+        contentDiv.innerHTML = element.innerHTML;
 
-        while (element.childElementCount > 0) {
-          contentDiv.appendChild(element.childNodes[0]);
-        }
+        element.innerHTML = "";
+        element.onclick = toggleDetails;
 
-        element.onclick = toggleElement;
         var toggleDiv = document.createElement("div");
         toggleDiv.className = "event-details-toggle show-content";
         element.appendChild(toggleDiv);
