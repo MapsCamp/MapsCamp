@@ -264,6 +264,15 @@ small {
     diplay:none;
 }
 
+.event-slides {
+    font-size: small;
+    display: inline;
+}
+
+.event-slides::before {
+    content: "slides";
+}
+
 .event {
     list-style-type: none;
     position: relative;
